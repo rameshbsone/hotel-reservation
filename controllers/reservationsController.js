@@ -65,10 +65,6 @@ exports.updateReservation = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHandler('Reservation not found', 404));
     }
 
-    // Check if the user is owner
-//    if (job.user.toString() !== req.user.id && req.user.role !== 'admin') {
-//        return next(new ErrorHandler(`User(${req.user.id}) is not allowed to update this job.`))
-//    }
 
     reservation = await Reservation.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
@@ -91,10 +87,6 @@ exports.cancelReservation = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHandler('Reservation not found', 404));
     }
 
-    // Check if the user is owner
-//    if (job.user.toString() !== req.user.id && req.user.role !== 'admin') {
-//        return next(new ErrorHandler(`User(${req.user.id}) is not allowed to update this job.`))
-//    }
 
     reservation = await Reservation.findByIdAndUpdate(req.params.id, {
         new: true,

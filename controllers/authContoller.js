@@ -68,7 +68,7 @@ exports.forgotPassword = catchAsyncErrors( async (req, res, next) => {
     try {
         await sendEmail({
             email : user.email,
-            subject : 'Jobbee-API Password Recovery',
+            subject : 'Hotel reservation-API Password Recovery',
             message
         });
     

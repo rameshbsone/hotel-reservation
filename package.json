@@ -1,13 +1,13 @@
 {
-  "name": "jobbee-api",
+  "name": "hotel-reservation-api",
   "version": "1.0.0",
-  "description": "this api is about jobs",
+  "description": "This api is about hotel reservations",
   "main": "app.js",
   "scripts": {
     "start": "SET NODE_ENV=production & node app.js",
     "dev": "nodemon app"
   },
-  "author": "Ghulam Abbas",
+  "author": "Ramesh Venkatarman",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
