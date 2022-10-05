@@ -8,6 +8,7 @@ const {
     newReservation,
     updateReservation,
     cancelReservation,
+    deleteReservation,
     guestStays,
     staysInrange
 } = require('../controllers/reservationsController');
@@ -20,6 +21,8 @@ router.use(isAuthenticatedUser);
 router.route('/reservations').get(isAuthenticatedUser, authorizeRoles('manager', 'employee'), getReservations);
 
 router.route('/reservation/:id/:guest_member_id').get(isAuthenticatedUser, authorizeRoles('manager', 'employee'), getReservation);
+
+router.route('/reservation/:id').delete(isAuthenticatedUser, authorizeRoles('manager', 'employee'), deleteReservation);
 
 router.route('/reservation/new').post(isAuthenticatedUser, authorizeRoles('manager', 'employee'), newReservation);
 

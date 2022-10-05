@@ -18,7 +18,8 @@ const sendToken = (user, statusCode, res) => {
         .cookie('token', token, options)
         .json({
             success : true,
-            token
+            token,
+            user_id: user._id
         });
 
     

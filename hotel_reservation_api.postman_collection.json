@@ -219,6 +219,34 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Delete a reservation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/reservation/633d1a3d2dc5a0157d84a7e5",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"reservation",
+								"633d1a3d2dc5a0157d84a7e5"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},

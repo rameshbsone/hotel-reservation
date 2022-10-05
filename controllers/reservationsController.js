@@ -94,6 +94,7 @@ exports.cancelReservation = catchAsyncErrors(async (req, res, next) => {
         useFindAndModify: false,
         status: "Cancelled"
     });
+    reservation = await Reservation.findById(req.params.id);
 
     res.status(200).json({
         success: true,
@@ -290,3 +291,22 @@ const projected_fields = async () => {
     }
     return select_fields;
 };
+
+
+// Delete a Reservation   =>  /api/v1/reservation/delete/:id
+exports.deleteReservation = catchAsyncErrors(async (req, res, next) => {
+    let reservation = await Reservation.findById(req.params.id);
+
+    if (!reservation) {
+        return next(new ErrorHandler('Reservation not found', 404));
+    }
+
+    reservation = await Reservation.findByIdAndDelete(req.params.id);
+
+    res.status(200).json({
+        success: true,
+        message: 'Reservation is deleted.'
+    });
+
+});
+
